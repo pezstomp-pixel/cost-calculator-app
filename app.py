@@ -37,11 +37,16 @@ with tab1:
             "CNY": 68.0,
             "USD": 10.0,
         }
+        step_by_currency = {
+            "JPY": 50.0,   # JPYは50刻み
+            "CNY": 1.0,
+            "USD": 1.0,
+        }
         buy_price_input = st.number_input(
-            f"仕入れ値 ({buy_currency})",
+            f"仕入値 ({buy_currency})",
             min_value=0.0,
             value=default_by_currency[buy_currency],
-            step=1.0,
+            step=step_by_currency[buy_currency],
         )
 
         fee_rate = st.selectbox("販売手数料率", ["8%", "10%", "15%"], index=1)
